@@ -6,7 +6,7 @@ public class Punto3D extends Punto {
 	private int z;
 	
 	
-	//tenemos que tener un constructor para que se le puedan proporcionar también la
+	//tenemos que tener un constructor para que se le puedan proporcionar también la z
 	public Punto3D(int x, int y, int z) {
 		//llamamos al constructor de la superclase para la x y la y
 		super(x,y);
