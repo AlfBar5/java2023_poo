@@ -4,7 +4,7 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		Punto3D pd= new Punto3D(3, 5, 6);
+		Punto3D pd= new Punto3D(13, 15, 16);
 		pd.dibujar();
 		
 						
