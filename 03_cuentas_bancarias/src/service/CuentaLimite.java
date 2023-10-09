@@ -50,10 +50,12 @@ public class CuentaLimite extends Cuenta{
 	public void extraer(double cantidad) {
 		super.extraer(cantidad);
 		
+		// si no supera el límite, se saca el dinero.
+		// si supera el límite solo deja sacar el límite
 		if (cantidad<=limite) {
 			super.extraer(cantidad);
 		}else {
-			super.extraer(limite);;
+			super.extraer(limite);
 		}
 	}
 	
