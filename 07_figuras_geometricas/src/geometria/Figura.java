@@ -5,7 +5,7 @@ public abstract class Figura {
 	//atributos
 	private String color;
 
-	//constructor con parámetros
+	//constructor con un parámetro
 	public Figura(String color) {
 		super();
 		this.color = color;
@@ -24,5 +24,8 @@ public abstract class Figura {
 	//pero puedo hacer una clase abstract para que lo hereden las clases hijas y lo implementen
 	//si hay un método abstracto, la clase tiene que ser abstract
 	public abstract double superficie();
+
+
+	
 
 }
