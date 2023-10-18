@@ -24,6 +24,7 @@ class CriterioPares implements Predicate<Integer>{
 	
 	
 	
+	
 }
 
 //creamos una clase que implemente la interfaz para sumar los negativos

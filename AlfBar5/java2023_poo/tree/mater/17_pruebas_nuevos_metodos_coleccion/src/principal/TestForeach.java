@@ -24,7 +24,7 @@ public class TestForeach {
 		//sin instrucciones de control
 		numeros.forEach(n->System.out.println(n));
 		
-		
+	
 		
 		System.out.println("--------------");
 		

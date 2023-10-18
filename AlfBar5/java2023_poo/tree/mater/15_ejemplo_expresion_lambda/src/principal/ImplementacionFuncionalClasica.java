@@ -23,6 +23,7 @@ class PrinterPantalla implements Printer{
 
 
 
+
 public class ImplementacionFuncionalClasica {
 
 	public static void main(String[] args) {
