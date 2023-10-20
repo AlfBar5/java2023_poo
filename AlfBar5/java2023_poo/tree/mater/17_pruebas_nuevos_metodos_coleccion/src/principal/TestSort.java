@@ -33,6 +33,9 @@ public class TestSort {
 		////ordenar alfabeticamente un arraylist de cadenas de caracteres
 		List<String> cadenaalfa = new ArrayList<>(List.of("Marcos","Lucas","Laura","Angela","Elena","Zacarías"));
 		cadenaalfa.sort((a,b)->a.compareTo(b)); 
+		
+		////misma línea que la anterior con referencia a método ::
+		//cadenaalfa.sort(String::compareTo);
 	
 		cadenaalfa.forEach(n->System.out.println(n));
 		

@@ -28,11 +28,14 @@ class TestCiudadesService extends CiudadesService {
 		
 	}
 
+/*
 	@Test
 	void testTotalCiudadesPais() {
 		fail("Not yet implemented");
 	}
 
+*/
+	
 	@Test
 	void testTotalPaises() {
 		//tres paises hay en los datos de prueba
@@ -50,11 +53,16 @@ class TestCiudadesService extends CiudadesService {
 		// da false, porque hay ciudades con temperatura media inferior de 5
 		assertFalse(service.existeCiudadTempInf(5));
 	}
+	
+	
+	/*	
 
 	@Test
 	void testCiudadPornombre() {
 		fail("Not yet implemented");
 	}
+	
+*/
 
 	@Test
 	void testCiudadMasPoblada() {
@@ -74,6 +82,25 @@ class TestCiudadesService extends CiudadesService {
 	void testTemperaturaMasAlta() {
 		assertEquals(30.5, service.temperaturaMasAlta());
 	}
+	
+	@Test
+	void testciudadesAgrupadasPorPais() {
+		//nueva ciudad de prueba, se añade a las de arriba
+		service.altaPaises("c6", "p4", 900_000, 30.5);
+		
+		assertEquals(1, service.ciudadesAgrupadasPorPais().get("p4").size()); 
+		
+		assertEquals(2, service.ciudadesAgrupadasPorPais().get("p2").size()); 
+		
+	}
+	
+	
+	@Test
+	void testciudadesDosListasTemperatura() {
+		//2 false, menor a 22grados
+		assertEquals(2, service.ciudadesDosListasTemperatura(22.0));
+	}
+	
 	
 	
 }

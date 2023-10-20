@@ -1,8 +1,9 @@
 package service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import model.Ciudad;
 
@@ -108,15 +109,17 @@ public class CiudadesService {
 	
 	//-7- dado un país, media de habitantes de sus ciudades
 	
-	public Double mediaHabitantesCiudadesPorPais(String pais) {
+	public double mediaHabitantesCiudadesPorPais(String pais) {
 	
 		return 
 				ciudades.stream()
 				.filter(p->p.getPais().equals(pais)) //stream datos pais
+				/*
 				.mapToLong(s->s.getHabitantes()) //transformamos a Long, es ya un Long stream
 				.average() //calculamos la media
 				.orElse(0.0);
-		
+				*/
+				.collect(Collectors.averagingDouble(c->c.getHabitantes()));
 	}
 	
 	
@@ -128,11 +131,74 @@ public class CiudadesService {
 				.mapToDouble(c->c.getTemperaturaMedia()) //transdormamos a double stream
 				.max() //valor máximo del stream
 				.orElse(0);
+		
 				
 	}
 	
 	
 	
+	//-9- A partir de un pais devuelve la lista de ciudades de dicho país
+	
+	public List<Ciudad> listaCiudadesPorPais(String pais){
+		return 
+				ciudades.stream()
+				.filter(n->n.getPais().equals(pais))
+				.collect(Collectors.toList())
+				;
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	//-10- devuelve una lista con los nombres de los países
+	
+	public List<String> listaPaises(){
+			
+			return
+					ciudades.stream() //strean ciudades Stream<Ciudad>
+					.map(c->c.getPais()) //Stream<String>
+					.distinct()
+					.collect(Collectors.toList())
+					;
+ 		
+		
+	}
+	
+	
+	//toMap tabla con clave y valor
+	
+	//-11- Método que devuelva una tabla con las ciudades agrupadas por país
+	
+	public Map<String, List<Ciudad>> ciudadesAgrupadasPorPais(){
+		
+		return
+				ciudades.stream()
+				.collect(Collectors.groupingBy(s->s.getPais()))
+				;
+		
+	}
+	
+	
+	
+	
+	//-12- método que, a partir de una temperatura, devuelva una tabla con dos listas de ciudades
+	//por un lado, las que tienen una temperatura media superior a ese valor
+	//y, por otro, las que tienen una temperatura inferior
+	
+	public Map<Boolean,List<Ciudad>> ciudadesDosListasTemperatura(double temperatura){
+		
+		return 
+				ciudades.stream()
+				.collect(Collectors.partitioningBy(t->t.getTemperaturaMedia()>=temperatura))
+				;
+		
+		//
+		
+	}
 	
 	
 	

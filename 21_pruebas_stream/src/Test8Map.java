@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Test8Map {
 
@@ -37,6 +38,27 @@ public class Test8Map {
 
 		
 		
+		//OTRA FORMA DEL ANTERIOR
+		//Mostrar el total de caracteres de todos los productos, sin contar repetidos
+		System.out.println("---- 2 Mostrar el total de caracteres de todos los productos --------");
+		
+		System.out.println(
+				
+		Arrays.stream(nombres.split("[, -]"))  //stream de cadenas Stream<string>
+		.distinct() //eliminamos cadenas duplicadas, aunque en este caso no hay ninguna
+		.collect(Collectors.summingInt(s->s.length()))
+		
+				);
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
 		//calcula la media de todos los positivos
 		System.out.println("---- calculo de la media de todos los positivos --------");
 		List<Integer> nums = List.of(6,11,-4,8,-1,10,8,2,11,27,-5,-4,41,10);
@@ -52,7 +74,18 @@ public class Test8Map {
 		);
 		
 		
+		//OTRA FORMA DEL ANTERIOR
+		//calcula la media de todos los positivos
+		System.out.println("---- 2 calculo de la media de todos los positivos --------");
+		List<Integer> nums22 = List.of(6,11,-4,8,-1,10,8,2,11,27,-5,-4,41,10);
 		
+		System.out.println(
+				
+				nums22.stream()
+				.filter(n->n>0) //stream números positivos
+				.collect(Collectors.averagingDouble(n->n))
+				
+		);
 		
 		
 		

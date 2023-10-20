@@ -22,8 +22,11 @@ public class TestForeach {
 		//De la nueva forma
 		//programación funcional. Lógica de aplicación a partir de funciones
 		//sin instrucciones de control
+		
 		numeros.forEach(n->System.out.println(n));
 		
+		////misma línea con referencias a métodos
+		//numeros.forEach(System.out::println);
 	
 		
 		System.out.println("--------------");
