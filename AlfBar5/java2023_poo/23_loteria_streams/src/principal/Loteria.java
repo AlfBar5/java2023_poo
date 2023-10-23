@@ -20,6 +20,7 @@ public class Loteria {
 		.forEach(n->System.out.println(n+",")); //imprimir
 
 		
+		
 	}
 
 	
